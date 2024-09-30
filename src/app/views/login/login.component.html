@@ -1,0 +1,36 @@
+
+<div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+           <div class="card-header">
+            Login form
+           </div>
+           <div class="card-body">
+            <form [formGroup]="configureForm">
+            <div class="form-group">
+                <label for="username">User name:</label>
+                <input type="text" class="form-control" id="username" formControlName="username" [(ngModel)]="userData.username"
+                [ngClass]="{ 'is-invalid': submitted && validationError.username.errors }">
+                <div *ngIf="submitted && validationError.username.errors" class="invalid-feedback">
+                    <div *ngIf="validationError.username.errors.required">Username is required
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" formControlName="password" [(ngModel)]="userData.password"
+                [ngClass]="{ 'is-invalid': submitted && validationError.password.errors }">
+                <div *ngIf="submitted && validationError.password.errors" class="invalid-feedback">
+                    <div *ngIf="validationError.password.errors.required">Password is required
+                    </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary mt-3" (click)="submitLoginUserData()">Submit 
+                <i *ngIf="isLoader" class="fa fa-circle-o-notch fa-spin"
+                style="font-size: .875rem; line-height: 1.5;"></i>
+            </button>
+        </form>
+           </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+           <div class="card-header">
+            Party Management 
+          <span routerLink="create-new-party-management" style="float:right; cursor:pointer">Create new party management </span>
+           </div>
+           <div class="card-body">
+            <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Anniversary date</th>
+                    <th>Company name</th>
+                    <th>Credit limit</th>
+                    <th>Email</th>
+                    <th>Gstin</th>
+                    <th>DOB</th>
+                    <th>Id</th>
+                    <th>Active</th>
+                    <th>Login_access</th>
+                    <th>Apply tds</th>
+                    <th>Mobile Number</th>
+                    <th>Pan number</th>
+                    <th>Remark</th>
+                    <th>Telephone_no</th>
+                    <th>Image</th>
+                    <th>Bank details</th> 
+                    <th>Address details</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let item of partyManagementData">
+                    <td> {{item.name}}</td>
+                    <td> {{item.anniversary_date}}</td>
+                    <td> {{item.company_name}}</td>
+                    <td> {{item.credit_limit}}</td>
+                    <td> {{item.email}}</td>
+                    <td> {{item.gstin}}</td>
+                    <td> {{item.date_of_birth}}</td>
+                   
+                    <td> {{item.id}}</td>
+                    <td> {{item.is_active}}</td>
+                    <td>{{ item.login_access ? 'Yes' : 'No' }}</td>
+                    <td>{{ item.apply_tds ? 'Yes' : 'No' }}</td>
+                    <td> {{item.mobile_no}}</td>
+                    <td> {{item.pan_no}}</td>
+                    <td> {{item.remark}}</td>
+                    <td> {{item.telephone_no}}</td>
+                    <td>
+                      <img *ngIf="item.image" [src]="item.image" alt="User Image" width="100" height="100">
+                      <p *ngIf="!item.image">No Image</p>
+                    </td>
+                    <td>
+                      <span (click)="toggleExpand(item.bank_id)" class="pointer"> View Bank Details</span>
+                      <div class="" *ngIf="expandedRow === item.bank_id">
+                      <div *ngFor="let bank of item.bank_id">
+                        <p><strong>Bank Name:</strong> {{ bank.bank_name }}</p>
+                        <p><strong>IFSC Code:</strong> {{ bank.bank_ifsc_code }}</p>
+                        <p><strong>Branch:</strong> {{ bank.branch_name }}</p>
+                        <p><strong>Account No:</strong> {{ bank.account_no }}</p>
+                        <p><strong>Account Holder:</strong> {{ bank.account_holder_name }}</p>
+                        <hr/>
+                      </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span (click)="toggleExpand(item.address)" class="pointer"> View Address Details</span>
+                      <div class="" *ngIf="expandedRow === item.address">
+                      <div *ngFor="let address of item.address">
+                        <p><strong>Address Line 1:</strong> {{ address.address_line_1 }}</p>
+                        <p><strong>Address Line 2:</strong> {{ address.address_line_2 }}</p>
+                        <p><strong>City:</strong> {{ address.city }}</p>
+                        <p><strong>State:</strong> {{ address.state }}</p>
+                        <p><strong>Country:</strong> {{ address.country }}</p>
+                        <p><strong>Pin code:</strong> {{ address.pincode }}</p>
+                        <hr/>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <a [routerLink]="['create-new-party-management', item.id]"
+                      style="font-size: 16px;" title="Edit" class="dropdown-item text-blue">Edit</a>
+                      <a data-toggle="modal" data-target="#deleteModal" role="button" tabindex="0" title="Delete"
+                      (click)="deleteList(item)" style="font-size: 16px;">Delete</a> 
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+            </div>
+          </div>
+          </div>
+    </div>
+</div>
+
+
+
+
+           
+            

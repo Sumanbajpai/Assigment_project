@@ -1,0 +1,217 @@
+
+  <div class="card">
+      <div class="card-header">
+     <span *ngIf="isShowSaveBtn">Create New Party Management </span> 
+     <span *ngIf="isShowUpdateBtn">Update Party Management </span>
+    </div>
+    <div class="card-body">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+        <div class="form-group">
+            <label for="name">User name:</label>
+        <input type="text" class="form-control" [(ngModel)]="partyManagementModel.name" name="name" id="name">
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+        <label for="company_name">Company name :</label>
+    <input type="text" class="form-control" [(ngModel)]="partyManagementModel.company_name" name="companyName">
+    </div>
+    </div>
+   
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+        <div class="form-group">
+        <label for="Email">Email :</label>
+    <input type="email" class="form-control" [(ngModel)]="partyManagementModel.email" name="email">
+    </div>
+    </div>
+  
+  
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+        <div class="form-group">
+        <label for="Email">Mobile No :</label>
+    <input type="text" class="form-control" [(ngModel)]="partyManagementModel.mobile_no" name="mobileNo">
+    </div>
+    </div>
+  
+   
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="WhatsApp No">WhatsApp No:</label>
+    <input type="text" class="form-control" [(ngModel)]="partyManagementModel.whatsapp_no" name="whatsappNo">
+    </div>
+    </div>
+  
+  
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="Anniversary">Anniversary Date :</label>
+    <input type="date" class="form-control" [(ngModel)]="partyManagementModel.anniversary_date" name="anniversaryDate">
+    </div>
+    </div>
+  
+    
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="DOB">Date of Birth :</label>
+    <input type="date" class="form-control" [(ngModel)]="partyManagementModel.date_of_birth" name="dob">
+    </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="pan">PAN No :</label>
+    <input type="text" class="form-control" [(ngModel)]="partyManagementModel.pan_no" name="panNo">
+  </div>
+  </div>
+  
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="GSTIN">GSTIN :</label>
+    <input type="text" class="form-control" [(ngModel)]="partyManagementModel.gstin" name="gstin">
+    </div>
+    </div>
+  
+   
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="limit">Credit Limit :</label>
+    <input type="number" class="form-control" [(ngModel)]="partyManagementModel.credit_limit" name="creditLimit">
+    </div>
+    </div>
+  
+  
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="number">Telephone No : </label>
+    <input type="text" class="form-control" [(ngModel)]="partyManagementModel.telephone_no" name="telephoneNo">
+  </div>
+  </div>
+
+  <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="Remark">Remark: </label>
+        <textarea class="form-control" [(ngModel)]="partyManagementModel.remark" name="remark"></textarea>
+      </div>
+  </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="tds">Apply TDS: </label>
+    <input type="checkbox" [(ngModel)]="partyManagementModel.apply_tds" name="applyTds">
+    </div>
+    </div>
+
+   <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="active">Is Active: </label>
+    <input type="checkbox" [(ngModel)]="partyManagementModel.is_active" name="isActive">
+    </div>
+    </div>
+  
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label for="login">Login Access: </label>
+    <input type="checkbox" [(ngModel)]="partyManagementModel.login_access" name="loginAccess">
+    </div>
+</div>
+  
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+<div class="form-group">
+<label for="image">Image URL: </label>
+    <input type="file" form-control="Title" id="image" class="form-control form-control-sm"
+    [(ngModel)]="partyManagementModel.image" (change)="handleFileInput($event)">
+  </div>
+  </div>
+
+  <h5>Addresses:</h5>
+  <div class="row" *ngFor="let address of partyManagementModel.address; let i = index">
+  <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label>Address Line 1:</label>
+    <input type="text" class="form-control form-control-sm"[(ngModel)]="address.address_line_1" name="address_line_1_{{i}}" />
+    </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+      <div class="form-group">
+    <label>Address Line 2:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="address.address_line_2" name="address_line_2_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>Country:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="address.country" name="country_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>State:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="address.state" name="state_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>City:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="address.city" name="city_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>Pin code:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="address.pincode" name="pincode_{{i}}" />
+  </div>
+  </div>
+</div>
+
+<h5 class="mt-5">Bank Details :</h5>
+<div class="row" *ngFor="let bankDetails of partyManagementModel.bank_id; let i = index">
+  <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+    <div class="form-group">
+    <label>Account holder name:</label>
+    <input type="text" class="form-control form-control-sm"[(ngModel)]="bankDetails.account_holder_name" name="account_holder_name_{{i}}" />
+    </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+      <div class="form-group">
+    <label>Account No:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="bankDetails.account_no" name="account_no_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>Bank ifsc code:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="bankDetails.bank_ifsc_code" name="bank_ifsc_code_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>Bank name:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="bankDetails.bank_name" name="bank_name_{{i}}" />
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <div class="form-group">
+    <label>Branch name:</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="bankDetails.branch_name" name="branch_name_{{i}}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 mt-3">
+  <button type="button" class="btn btn-primary mt-3" (click)="createNewParty()" *ngIf="isShowSaveBtn">
+    Submit 
+  </button>
+  <button type="button" class="btn btn-primary mt-3" (click)="updatePartyList()" *ngIf="isShowUpdateBtn">
+    Update
+  </button>
+</div>
+</div>
+</div>
+</div>
+            
+       
+            
