@@ -1,3 +1,7 @@
 .pointer{
     cursor: pointer;
 }
+.text-blue{
+    color:blue;
+    font-size: 16px;
+}

@@ -2,8 +2,8 @@
 <div class="row mt-5">
     <div class="col-md-4 offset-md-4">
         <div class="card">
-           <div class="card-header">
-            Login form
+           <div class="card-header text-center">
+            Login with party management 
            </div>
            <div class="card-body">
             <form [formGroup]="configureForm">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group mt-2">
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="pwd" formControlName="password" [(ngModel)]="userData.password"
                 [ngClass]="{ 'is-invalid': submitted && validationError.password.errors }">

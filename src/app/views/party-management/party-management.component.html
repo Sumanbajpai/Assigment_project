@@ -7,7 +7,7 @@
            </div>
            <div class="card-body">
             <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-hover">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -54,7 +54,7 @@
                       <p *ngIf="!item.image">No Image</p>
                     </td>
                     <td>
-                      <span (click)="toggleExpand(item.bank_id)" class="pointer"> View Bank Details</span>
+                      <span (click)="toggleExpand(item.bank_id)" class="pointer text-blue"> View Bank Details</span>
                       <div class="" *ngIf="expandedRow === item.bank_id">
                       <div *ngFor="let bank of item.bank_id">
                         <p><strong>Bank Name:</strong> {{ bank.bank_name }}</p>
@@ -67,7 +67,7 @@
                       </div>
                     </td>
                     <td>
-                      <span (click)="toggleExpand(item.address)" class="pointer"> View Address Details</span>
+                      <span (click)="toggleExpand(item.address)" class="pointer text-blue"> View Address Details</span>
                       <div class="" *ngIf="expandedRow === item.address">
                       <div *ngFor="let address of item.address">
                         <p><strong>Address Line 1:</strong> {{ address.address_line_1 }}</p>
@@ -82,9 +82,9 @@
                     </td>
                     <td>
                       <a [routerLink]="['create-new-party-management', item.id]"
-                      style="font-size: 16px;" title="Edit" class="dropdown-item text-blue">Edit</a>
+                      title="Edit" class="dropdown-item text-blue">Edit</a>
                       <a data-toggle="modal" data-target="#deleteModal" role="button" tabindex="0" title="Delete"
-                      (click)="deleteList(item)" style="font-size: 16px;">Delete</a> 
+                      (click)="deleteList(item)" class="text-blue">Delete</a> 
                     </td>
                     </tr>
                     </tbody>
